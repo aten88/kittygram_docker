@@ -17,6 +17,7 @@ services:
     depends_on:
       - db
     volumes:
+      - static:/backend_static
       - media:/media
   frontend:
     env_file: .env
@@ -25,10 +26,10 @@ services:
     volumes:
       - static:/static
   gateway:
-    build: ./nginx/
+    build: ./kittygram-gateway/
     env_file: .env
+    volumes:
+      - static:/staticfiles/
+      - media:/media
     ports:
       - 9000:80
-    volumes:
-      - static:/static
-      - media:/media
