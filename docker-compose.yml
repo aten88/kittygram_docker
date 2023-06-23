@@ -22,9 +22,9 @@ services:
   frontend:
     env_file: .env
     build: ./frontend/
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/static/
     volumes:
-      - static:/static
+      - static:/frontend_static
   gateway:
     build: ./kittygram-gateway/
     env_file: .env
