@@ -154,7 +154,7 @@ jobs:
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
         with:
-           context: ./gateway/
+           context: ./kittygram-gateway/
            push: true
         # Тут вместо username должен быть ваш логин на Docker Hub
            tags: ${{ secrets.LOGIN_DOCHUB }}/kittygram_gateway:latest
