@@ -1,6 +1,6 @@
-# flake8: noqa
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -59,20 +59,14 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        # Меняем настройку Django: теперь для работы будет использоваться
-        # бэкенд postgresql
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'kittygram'),
-        'USER': os.getenv('POSTGRES_USER', 'kittygram_user'),
+        'NAME': os.getenv('POSTGRES_DB', ''),
+        'USER': os.getenv('POSTGRES_USER', ''),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', 5432)
+        'PORT': os.getenv('DB_PORT', '')
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -110,7 +104,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', 
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -119,5 +113,4 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
-
 }
