@@ -1,4 +1,4 @@
-[![YourActionName Actions Status](https://github.com/aten88/kittygram_final/workflows/added_bages/badge.svg)](https://github.com/aten88/kittygram_final/actions)
+[![YourActionName Actions Status](https://github.com/aten88/kittygram_final/workflows/main/badge.svg)](https://github.com/aten88/kittygram_final/actions)
 
 
 Описание проекта
