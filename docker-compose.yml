@@ -26,7 +26,7 @@ services:
     volumes:
       - static:/frontend_static
   gateway:
-    build: ./kittygram-gateway/
+    build: ./nginx/
     env_file: .env
     volumes:
       - static:/staticfiles/
