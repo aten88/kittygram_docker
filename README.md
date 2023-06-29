@@ -1,3 +1,6 @@
+[![YourActionName Actions Status](https://github.com/aten88/kittygram_final/workflows/added_bages/badge.svg)](https://github.com/aten88/kittygram_final/actions)
+
+
 Описание проекта
 Социальная сеть для котов с возможностью публикации фотографий и их достижений.
 
@@ -40,6 +43,11 @@ http://localhost:9000/
 
 Остановка контейнеров
 В терминале, где был запуск Ctrl+С или в другом окне: sudo docker compose -f docker-compose.yml down
+
+
+[![Build Status](https://travis-ci.org/ваш_профиль/ваш_проект.svg?branch=master)](https://travis-ci.org/ваш_профиль/ваш_проект)
+Развернутый проект доступен по адресу: https://aten-kittygramm.sytes.net/
+
 
 Автор
 Алексей Тен
