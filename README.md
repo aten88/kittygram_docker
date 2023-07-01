@@ -1,4 +1,4 @@
-![Build Status](https://github.com/git@github.com:aten88/kittygram_final.git/workflows/Main Kittygram workflow/badge.svg)
+https://github.com/aten88/https://github.com/aten88/kittygram_final/actions/workflows/main.yml/badge.svg
 
 Описание проекта:
 Социальная сеть для котов с возможностью публикации фотографий и их достижений.
