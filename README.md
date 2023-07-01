@@ -1,4 +1,4 @@
-https://github.com/aten88/https://github.com/aten88/kittygram_final/actions/workflows/main.yml/badge.svg
+[![Main Kittygram workflow](https://github.com/aten88/kittygram_final/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/aten88/kittygram_final/actions/workflows/main.yml)
 
 Описание проекта:
 Социальная сеть для котов с возможностью публикации фотографий и их достижений.
