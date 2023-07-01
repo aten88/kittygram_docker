@@ -1,7 +1,6 @@
-[![YourActionName Actions Status](https://github.com/aten88/kittygram_final/workflows/main/badge.svg)](https://github.com/aten88/kittygram_final/actions)
+![Build Status](https://github.com/git@github.com:aten88/kittygram_final.git/workflows/Main Kittygram workflow/badge.svg)
 
-
-Описание проекта
+Описание проекта:
 Социальная сеть для котов с возможностью публикации фотографий и их достижений.
 
 Технологии которые применялись в данном проекте:
@@ -12,42 +11,75 @@ JavaScript
 Docker
 Github Actions
 
-Для запуска на сервере необходимо:
+
+Структура и технические параметры проекта:
+
+  Весь проект состоит из контейнеров обьединенных в одну единую сеть.
+  - Бекенд проекта расположен в контейнере kittygram_backend и привязан к порту 9000. 
+    Работа этого контейнера не останавливается после запуска.
+    Данный контейнер взаимодействует с контейнером БД и volumes: media и static
+
+  - Фронтенд проекта расположен в контейнере kittygram_frontend, его задача при старте скопировать статику для запуска проекта
+    и поместить ее в папку связанную с volume static. Затем остановить свою работу.
+
+  - Контейнер Gateway перераспределяет запросы между остальными контейнерами. И является "входными воротами проекта".
+
+  - Контейнер БД обрабатывает запросы при обращении к БД, работает в паре с контейнером бэкенда и volume: db
+
+  Файлы для обьединения контейнеров в сеть называются "COMPOSE":
+  Данные файлы-инструкции описывают порядок и правила выполнения построения и обьединения контейнеров в единую сеть,
+  иначе можно сказать отвечают за "ОРКЕСТРАЦИЮ" проекта. В проекте могут быть использованы несколько видов этих файлов:
+   - Темплейт-файлы (Template files): Темплейт-файлы используются для создания динамических страниц или документов.
+   - Продакшн-файлы (Production files): Продакшн-файлы представляют собой оптимизированные и готовые к развертыванию файлы, 
+     которые используются в окружении реального проекта на боевом сервере или в продакшен.
+   - Компоуз-файлы без суффикса: Это может быть общее название для файлов, которые не имеют конкретной роли или суффикса.
+     Это файлы как правило необходимые в процессе разработки и для разработчиков.
+
+  Дополнительные файлы для запуска проекта:
+   - Заполненный файл .env на основе файла .env.example(в корне проекта)
+     Данный файл содержит список КОНСТАНТ необходимых для создания контейнеров и запуска проекта.
+
+
+Для запуска проекта на сервере необходимо:
 
 Склонировать репозиторий:
 git clone git@github.com:aten88/kittygram_final.git
 
-В своем аккаунте на GitHub в разделе GitHub Actions secrets заполняем константы для запуска(список констант имеется в файле main.yml)
-Пушим проект в ветку main, ждем выполнения сценария и отчета в телеграмм об успешном выполнении.
+В своем аккаунте на GitHub в разделе GitHub Actions Secrets передаем в КОНСТАНТЫ необходимые значения для запуска:
+см. файл .env.example - доступен в корне репозитория.
+
+Пушим проект в ветку main, ждем выполнения сценария,
+отчета в телеграмм об успешном выполнении, проверяем доступность проекта.
+
 
 Запуск проекта из исходников GitHub(локально)
+
 Клонируем себе репозиторий:
 git clone git@github.com:aten88/kittygram_final.git
 
-Заполняем файл .env в соответствии с шаблоном .env.example
+В корне проекта создаем и заполняем файл .env в 
+соответствии с шаблоном .env.example - доступен в корне репозитория.
 
 Выполняем запуск:
-sudo docker compose -f docker-compose.yml up
+ - sudo docker compose -f docker-compose.yml up
 
-После запуска: Миграции, сбор статистики
-После запуска необходимо выполнить сбор статистики и миграции
+После запуска: Выполняем миграции и сбор статистики:
+ - sudo docker compose -f [имя-файла-docker-compose.yml] exec backend python manage.py migrate
+ - sudo docker compose -f [имя-файла-docker-compose.yml] exec backend python manage.py collectstatic
+ - sudo docker compose -f [имя-файла-docker-compose.yml] exec backend cp -r /app/collected_static/. /static/static/
 
-sudo docker compose -f [имя-файла-docker-compose.yml] exec backend python manage.py migrate
-
-sudo docker compose -f [имя-файла-docker-compose.yml] exec backend python manage.py collectstatic
-
-sudo docker compose -f [имя-файла-docker-compose.yml] exec backend cp -r /app/collected_static/. /static/static/
-
-И далее проект доступен на:
-http://localhost:9000/
+Проект доступен по адресу:
+ - http://localhost:9000/
 
 Остановка контейнеров
-В терминале, где был запуск Ctrl+С или в другом окне: sudo docker compose -f docker-compose.yml down
+В терминале, где был запуск, нажать Ctrl+С или в другом окне терминала:
+ - sudo docker compose -f docker-compose.yml down
+ эта команда остановит и удалит все контейнеры и сети.
 
 
-[![Build Status](https://travis-ci.org/ваш_профиль/ваш_проект.svg?branch=master)](https://travis-ci.org/ваш_профиль/ваш_проект)
+[![Build Status](https://travis-ci.org/aten88/kittygram_final.svg?branch=master)](https://travis-ci.org/aten88/kittygram_final)
 Развернутый проект доступен по адресу: https://aten-kittygramm.sytes.net/
 
 
-Автор
+Автор:
 Алексей Тен
