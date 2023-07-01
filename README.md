@@ -77,7 +77,6 @@ git clone git@github.com:aten88/kittygram_final.git
  эта команда остановит и удалит все контейнеры и сети.
 
 
-[![Build Status](https://travis-ci.org/aten88/kittygram_final.svg?branch=master)](https://travis-ci.org/aten88/kittygram_final)
 Развернутый проект доступен по адресу: https://aten-kittygramm.sytes.net/
 
 
