@@ -45,8 +45,31 @@ Github Actions
 Склонировать репозиторий:
 git clone git@github.com:aten88/kittygram_final.git
 
-В своем аккаунте на GitHub в разделе GitHub Actions Secrets передаем в КОНСТАНТЫ необходимые значения для запуска:
-см. файл .env.example - доступен в корне репозитория.
+В своем аккаунте на GitHub в разделе GitHub Actions Secrets передаем в КОНСТАНТЫ необходимые значения для запуска, 
+в соответствии с примером .env.example::
+
+- Константы для подключения к БД Postgres:
+  POSTGRES_USER - администратор БД.
+  POSTGRES_PASSWORD - пароль администратора БД.
+  POSTGRES_DB - название БД.
+
+- Константы Django:
+  SECRET_KEY: - секретный ключ Django.
+  ALLOWED_HOSTS: - список хостов для поключения.
+
+- Переменные для доступа к DockerHub:
+  username - логин.
+  password - пароль.
+
+- Переменные для подключению к серверу:
+  host: - ip адрес сервера.
+  username: - логин пользователя.
+  key: - закрытый SSH ключ.
+  passphrase: - пароль.
+
+- Переменные для отчета в Telegram:
+  to: - ID аккаунта Telegram.
+  token: - Токен телеграмм-бота.
 
 Пушим проект в ветку main, ждем выполнения сценария,
 отчета в телеграмм об успешном выполнении, проверяем доступность проекта.
@@ -57,8 +80,17 @@ git clone git@github.com:aten88/kittygram_final.git
 Клонируем себе репозиторий:
 git clone git@github.com:aten88/kittygram_final.git
 
-В корне проекта создаем и заполняем файл .env в 
-соответствии с шаблоном .env.example - доступен в корне репозитория.
+
+Для того чтобы запустить проект(локально),
+вам необходимо создать и заполнить файл .env в корне проекта в соответствии с примером .env.example:
+
+SECRET_KEY - секретный ключ Django. 
+POSTGRES_DB - название БД. 
+POSTGRES_USER - логин администратора БД. 
+POSTGRES_PASSWORD - пароль администратора БД. 
+DB_NAME - имя созданной в контейнере БД. 
+DB_HOST - хост БД. 
+DB_PORT - номер порта БД.
 
 Выполняем запуск:
  - sudo docker compose -f docker-compose.yml up
