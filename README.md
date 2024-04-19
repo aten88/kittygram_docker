@@ -1,7 +1,7 @@
 [![Main Kittygram workflow](https://github.com/aten88/kittygram_final/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/aten88/kittygram_final/actions/workflows/main.yml)
 
 ## Описание проекта:
-Социальная сеть для котов с возможностью публикации фотографий и их достижений.
+Социальная сеть для котиков с возможностью публикации фотографий и их достижений.
 
 #### Стек проекта: Python 3.9, Django 3.2.3, Django REST framework 3.12.4, JavaScript, Docker, Github Actions
 
