@@ -34,7 +34,7 @@
 ## Установка и запуск проекта:
 - Клонировать репозиторий:
   ```
-  git clone git@github.com:aten88/kittygram_dicker.git
+  git clone git@github.com:aten88/kittygram_docker.git
   ```
 - В своем аккаунте на GitHub в разделе GitHub Actions Secrets передаем в КОНСТАНТЫ необходимые значения для запуска, в соответствии с примером .env.example:
 
